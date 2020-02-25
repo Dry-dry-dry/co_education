@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<mapper namespace="com.mapper.SchoolInfoMapper">
+
+    <!--查询办学条件-->
+    <select id="selectSchoolCondition" resultType="com.entity.SchoolConditionEntity">
+      SELECT * FROM school_condition
+    </select>
+    <!--通过id查询办学条件-->
+    <select id="selectSchoolConditionById" resultType="com.entity.SchoolConditionEntity">
+      SELECT * FROM school_condition where id = #{id}
+    </select>
+    <!--删除办学条件-->
+    <delete id="deleteSchoolCondition">
+      delete from school_condition where id = #{id}
+    </delete>
+
+    <!--增加办学条件-->
+    <insert id="addSchoolCondition" parameterType="com.entity.SchoolConditionEntity" useGeneratedKeys="true" keyProperty="id">
+    insert into school_condition(
+    diningSeats,
+    bookNum,
+    readSeats,
+    computerNum,
+    totalDebt,
+    teachMachineMoney,
+    teachMachineNum
+    )values(
+    #{diningSeats},
+    #{bookNum},
+    #{readSeats},
+    #{computerNum},
+    #{totalDebt},
+    #{teachMachineMoney},
+    #{teachMachineNum}
+    )
+    </insert>
+
+    <!--修改办学条件-->
+    <update id="updateSchoolCondition">
+    update school_condition set
+    diningSeats = #{diningSeats},
+    bookNum = #{bookNum},
+    readSeats = #{readSeats},
+    computerNum = #{computerNum},
+    totalDebt = #{totalDebt},
+    teachMachineMoney = #{teachMachineMoney},
+    teachMachineNum = #{teachMachineNum}
+    where id = #{id}
+    </update>
+
+
+</mapper>

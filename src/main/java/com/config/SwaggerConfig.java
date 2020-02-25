@@ -11,8 +11,8 @@ import springfox.documentation.spring.web.plugins.Docket;
 import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
 /**
- * @author zhangyao
- * createTime 2019-7-22
+ * @author shuaige
+ * createTime 2020-2-14
  */
 @Configuration
 @EnableSwagger2
@@ -30,8 +30,8 @@ public class SwaggerConfig {
     }
 
     private ApiInfo apiInfo(){
-        return new ApiInfoBuilder().title("智慧景区")
-                .description("智慧景区管理")
+        return new ApiInfoBuilder().title("中职教育平台")
+                .description("中职教育平台后端相关接口")
                 .version("1.0")
                 .build();
     }
