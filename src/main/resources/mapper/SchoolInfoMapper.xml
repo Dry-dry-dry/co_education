@@ -3,20 +3,16 @@
 
 <mapper namespace="com.mapper.SchoolInfoMapper">
 
-    <!--查询办学条件-->
+    <!--办学条件-->
     <select id="selectSchoolCondition" resultType="com.entity.SchoolConditionEntity">
       SELECT * FROM school_condition
     </select>
-    <!--通过id查询办学条件-->
     <select id="selectSchoolConditionById" resultType="com.entity.SchoolConditionEntity">
       SELECT * FROM school_condition where id = #{id}
     </select>
-    <!--删除办学条件-->
     <delete id="deleteSchoolCondition">
       delete from school_condition where id = #{id}
     </delete>
-
-    <!--增加办学条件-->
     <insert id="addSchoolCondition" parameterType="com.entity.SchoolConditionEntity" useGeneratedKeys="true" keyProperty="id">
     insert into school_condition(
     diningSeats,
@@ -36,8 +32,6 @@
     #{teachMachineNum}
     )
     </insert>
-
-    <!--修改办学条件-->
     <update id="updateSchoolCondition">
     update school_condition set
     diningSeats = #{diningSeats},
@@ -50,5 +44,162 @@
     where id = #{id}
     </update>
 
+
+
+
+
+    <!--专业与课程建设-->
+    <select id="selectMajorCorse" resultType="com.entity.MajorCorseEntity">
+      SELECT * FROM major_course
+    </select>
+    <delete id="deleteMajorCorse">
+      delete from major_course where id = #{id}
+    </delete>
+    <insert id="addMajorCorse" parameterType="com.entity.MajorCorseEntity" useGeneratedKeys="true" keyProperty="id">
+    insert into major_course(
+    majorNum,
+    majorDirNum,
+    majorCourseNum,
+    textbookNum
+    )values(
+    #{majorNum},
+    #{majorDirNum},
+    #{majorCourseNum},
+    #{textbookNum}
+    )
+    </insert>
+    <update id="updateMajorCorse">
+    update major_course set
+    majorNum = #{majorNum},
+    majorDirNum = #{majorDirNum},
+    majorCourseNum = #{majorCourseNum},
+    textbookNum = #{textbookNum}
+    where id = #{id}
+    </update>
+    <select id="selecteMajorCorseById" resultType="com.entity.MajorCorseEntity">
+      SELECT * FROM major_course where id = #{id}
+    </select>
+
+
+
+
+    <!--参与职教集团情况-->
+    <select id="selectTeachCondition" resultType="com.entity.TeachConditionEntity">
+      SELECT * FROM teach_condition
+    </select>
+    <select id="selectTeachConditionById" resultType="com.entity.TeachConditionEntity">
+      SELECT * FROM teach_condition where id = #{id}
+    </select>
+    <delete id="deleteTeachCondition">
+      delete from teach_condition where id = #{id}
+    </delete>
+    <insert id="addTeachCondition" parameterType="com.entity.TeachConditionEntity" useGeneratedKeys="true" keyProperty="id">
+    insert into teach_condition(
+    teachCompany,
+    teachSchool,
+    teachProfessional,
+    teachNum
+    )values(
+    #{teachCompany},
+    #{teachSchool},
+    #{teachProfessional},
+    #{teachNum}
+    )
+    </insert>
+    <update id="updateTeachCondition">
+    update teach_condition set
+    teachCompany = #{teachCompany},
+    teachSchool = #{teachSchool},
+    teachProfessional = #{teachProfessional},
+    teachNum = #{teachNum}
+    where id = #{id}
+    </update>
+
+
+
+
+    <!--国际合作-->
+    <select id="selectColInternational" resultType="com.entity.ColInternationalEntity">
+      SELECT * FROM col_international
+    </select>
+    <select id="selectColInternationalById" resultType="com.entity.ColInternationalEntity">
+      SELECT * FROM col_international where id = #{id}
+    </select>
+    <delete id="deleteColInternational">
+      delete from col_international where id = #{id}
+    </delete>
+    <insert id="addColInternational" parameterType="com.entity.ColInternationalEntity" useGeneratedKeys="true" keyProperty="id">
+    insert into col_international(
+    coProfess,
+    trainStudent,
+    receiveForgin,
+    goAbroad,
+    abordCourse,
+    abordTeach,
+    corSchool
+    )values(
+    #{coProfess},
+    #{trainStudent},
+    #{receiveForgin},
+    #{goAbroad},
+    #{abordCourse},
+    #{abordTeach},
+    #{corSchool}
+    )
+    </insert>
+    <update id="updateColInternational">
+    update col_international set
+    coProfess = #{coProfess},
+    trainStudent = #{trainStudent},
+    receiveForgin = #{receiveForgin},
+    goAbroad = #{goAbroad},
+    abordCourse = #{abordCourse},
+    abordTeach = #{abordTeach},
+    corSchool = #{corSchool}
+    where id = #{id}
+    </update>
+
+
+
+    <!--校企合作-->
+    <select id="selectSchoolCompany" resultType="com.entity.SchoolCompanyEntity">
+      SELECT * FROM school_company
+    </select>
+    <select id="selectSchoolCompanyById" resultType="com.entity.SchoolCompanyEntity">
+      SELECT * FROM school_company where id = #{id}
+    </select>
+    <delete id="deleteSchoolCompany">
+      delete from school_company where id = #{id}
+    </delete>
+    <insert id="addSchoolCompany" parameterType="com.entity.SchoolCompanyEntity" useGeneratedKeys="true" keyProperty="id">
+    insert into school_company(
+    trainingBase,
+    companyNum,
+    majorNum,
+    teacherNum,
+    hourNum,
+    totalMoney,
+    totalFacility
+    )values(
+    #{trainingBase},
+    #{companyNum},
+    #{majorNum},
+    #{teacherNum},
+    #{hourNum},
+    #{totalMoney},
+    #{totalFacility}
+    )
+    </insert>
+    <update id="updateSchoolCompany">
+    update school_company set
+    trainingBase = #{trainingBase},
+    companyNum = #{companyNum},
+    majorNum = #{majorNum},
+    teacherNum = #{teacherNum},
+    hourNum = #{hourNum},
+    totalMoney = #{totalMoney},
+    totalFacility = #{totalFacility}
+    where id = #{id}
+    </update>
 
 </mapper>
