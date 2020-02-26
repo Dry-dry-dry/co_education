@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<mapper namespace="com.mapper.TeacherDataMapper">
+
+    <!--教师基本情况-->
+    <insert id="addTeacherInfo" parameterType="com.entity.TeacherInfoEntity" useGeneratedKeys="true"
+            keyProperty="id">
+    insert into teacher_status(
+    totalTeacher,
+    regularTeacher,
+    foreignTeacher,
+    maleNum,
+    femaleNum,
+    academicNum,
+    ProfessionalCourseNum,
+    highProfessionalNum,
+    subtropicalHighNum,
+    mediumNum,
+    primaryNum,
+    worldRookieNum,
+    professionalDisciplinesNum,
+    goodGreenNum,
+    citySpecialNum,
+    provincialSuperNum,
+    doubleNum
+    )values(
+    #{totalTeacher},
+    #{regularTeacher},
+    #{foreignTeacher},
+    #{maleNum},
+    #{femaleNum},
+    #{academicNum},
+    #{ProfessionalCourseNum},
+    #{highProfessionalNum},
+    #{subtropicalHighNum},
+    #{mediumNum},
+    #{primaryNum},
+    #{worldRookieNum},
+    #{professionalDisciplinesNum},
+    #{goodGreenNum},
+    #{citySpecialNum},
+    #{provincialSuperNum},
+    #{doubleNum}
+    )
+    </insert>
+    <update id="updateTeacherInfo">
+    update teacher_status set
+    totalTeacher = #{totalTeacher},
+    regularTeacher = #{regularTeacher},
+    foreignTeacher = #{foreignTeacher},
+    maleNum = #{maleNum},
+    femaleNum = #{femaleNum},
+    academicNum = #{academicNum},
+    ProfessionalCourseNum = #{ProfessionalCourseNum},
+    highProfessionalNum = #{highProfessionalNum},
+    subtropicalHighNum = #{subtropicalHighNum},
+    mediumNum = #{mediumNum},
+    primaryNum = #{primaryNum},
+    worldRookieNum = #{worldRookieNum},
+    professionalDisciplinesNum = #{professionalDisciplinesNum},
+    goodGreenNum = #{goodGreenNum},
+    citySpecialNum = #{citySpecialNum},
+    provincialSuperNum = #{provincialSuperNum},
+    doubleNum = #{doubleNum}
+    where id = #{id}
+    </update>
+    <select id="selectTeacherInfo" resultType="com.entity.TeacherInfoEntity">
+      SELECT * FROM teacher_status
+    </select>
+    <select id="selectTeacherInfoById" resultType="com.entity.TeacherInfoEntity">
+      SELECT * FROM teacher_status where id = #{id}
+    </select>
+    <delete id="deleteTeacherInfo">
+      delete from teacher_status where id = #{id}
+    </delete>
+
+
+    <!--公共课教师情况-->
+    <insert id="addCommonTeacher" parameterType="com.entity.CommonTeacherEntity" useGeneratedKeys="true"
+            keyProperty="id">
+    insert into common_teacher(
+    chineseTeacher,
+    mathTeacher,
+    englishTeacher,
+    computerTeacher,
+    undergraduateTeacher,
+    graduateTeacher
+    )values(
+    #{chineseTeacher},
+    #{mathTeacher},
+    #{englishTeacher},
+    #{computerTeacher},
+    #{undergraduateTeacher},
+    #{graduateTeacher}
+    )
+    </insert>
+    <update id="updateCommonTeacher">
+    update common_teacher set
+    chineseTeacher = #{chineseTeacher},
+    mathTeacher = #{mathTeacher},
+    englishTeacher = #{englishTeacher},
+    computerTeacher = #{computerTeacher},
+    undergraduateTeacher = #{undergraduateTeacher},
+    graduateTeacher = #{graduateTeacher}
+    where id = #{id}
+    </update>
+    <select id="selectCommonTeacher" resultType="com.entity.CommonTeacherEntity">
+      SELECT * FROM common_teacher
+    </select>
+    <select id="selectCommonTeacherById" resultType="com.entity.CommonTeacherEntity">
+      SELECT * FROM common_teacher where id = #{id}
+    </select>
+    <delete id="deleteCommonTeacher">
+      delete from common_teacher where id = #{id}
+    </delete>
+
+
+
+    <!--专业大类教师情况-->
+    <insert id="addCompanyTeacher" parameterType="com.entity.CompanyTeacherEntity" useGeneratedKeys="true"
+            keyProperty="id">
+    insert into company_teacher(
+    undergraduateTeacher,
+    graduateTeacher,
+    companyTeacher
+    )values(
+    #{undergraduateTeacher},
+    #{graduateTeacher},
+    #{companyTeacher}
+    )
+    </insert>
+    <update id="updateCompanyTeacher">
+    update company_teacher set
+    undergraduateTeacher = #{undergraduateTeacher},
+    graduateTeacher = #{graduateTeacher},
+    companyTeacher = #{companyTeacher}
+    where id = #{id}
+    </update>
+    <select id="selectCompanyTeacher" resultType="com.entity.CompanyTeacherEntity">
+      SELECT * FROM company_teacher
+    </select>
+    <select id="selectCompanyTeacherById" resultType="com.entity.CompanyTeacherEntity">
+      SELECT * FROM company_teacher where id = #{id}
+    </select>
+    <delete id="deleteCompanyTeacher">
+      delete from company_teacher where id = #{id}
+    </delete>
+</mapper>
