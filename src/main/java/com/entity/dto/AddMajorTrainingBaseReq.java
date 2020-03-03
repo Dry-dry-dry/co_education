@@ -1,0 +1,16 @@
+package com.entity.dto;
+
+import io.swagger.annotations.ApiModelProperty;
+import lombok.Data;
+
+@Data
+public class AddMajorTrainingBaseReq {
+    @ApiModelProperty(value = "trainingRoom", name = "trainingRoom", example = "200")
+    private int trainingRoom;
+    @ApiModelProperty(value = "equipmentNum", name = "equipmentNum", example = "200")
+    private int equipmentNum;
+    @ApiModelProperty(value = "station", name = "station", example = "200")
+    private int station;
+    @ApiModelProperty(value = "money", name = "money", example = "200")
+    private int money;
+}

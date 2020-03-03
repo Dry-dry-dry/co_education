@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<mapper namespace="com.mapper.VocatonalTrainingMapper">
+
+    <!--职业培训情况-->
+    <select id="selectVocatonalTraining" resultType="com.entity.VocatonalTrainingEntity">
+      SELECT * FROM vocatonal_training
+    </select>
+    <select id="selectVocatonalTrainingById" resultType="com.entity.VocatonalTrainingEntity">
+      SELECT * FROM vocatonal_training where id = #{id}
+    </select>
+    <delete id="deleteVocatonalTraining">
+      delete from vocatonal_training where id = #{id}
+    </delete>
+    <insert id="addVocatonalTraining" parameterType="com.entity.VocatonalTrainingEntity" useGeneratedKeys="true" keyProperty="id">
+    insert into vocatonal_training(
+    trainStaff,
+    seniorNum,
+    collegeNum,
+    disableNum,
+    unemploymentNum,
+    farmerNum,
+    rankerNum
+    )values(
+    #{trainStaff},
+    #{seniorNum},
+    #{collegeNum},
+    #{disableNum},
+    #{unemploymentNum},
+    #{farmerNum},
+    #{rankerNum}
+    )
+    </insert>
+    <update id="updateVocatonalTraining">
+    update vocatonal_training set
+    trainStaff = #{trainStaff},
+    seniorNum = #{seniorNum},
+    collegeNum = #{collegeNum},
+    disableNum = #{disableNum},
+    unemploymentNum = #{unemploymentNum},
+    farmerNum = #{farmerNum},
+    rankerNum = #{rankerNum}
+    where id = #{id}
+    </update>
+
+
+</mapper>

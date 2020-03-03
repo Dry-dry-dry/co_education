@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<mapper namespace="com.mapper.TrainingBaseMapper">
+
+    <!--全校实训基地-->
+    <select id="selectSchoolTrainingBase" resultType="com.entity.SchoolTrainingBaseEntity">
+      SELECT * FROM school_base
+    </select>
+    <select id="selectSchoolTrainingBaseById" resultType="com.entity.SchoolTrainingBaseEntity">
+      SELECT * FROM school_base where id = #{id}
+    </select>
+    <delete id="deleteSchoolTrainingBase">
+      delete from school_base where id = #{id}
+    </delete>
+    <insert id="addSchoolTrainingBase" parameterType="com.entity.SchoolTrainingBaseEntity" useGeneratedKeys="true" keyProperty="id">
+    insert into school_base(
+    trainingRoom,
+    equipmentNum,
+    station,
+    money
+    )values(
+    #{trainingRoom},
+    #{equipmentNum},
+    #{station},
+    #{money}
+    )
+    </insert>
+    <update id="updateSchoolTrainingBase">
+    update school_base set
+    trainingRoom = #{trainingRoom},
+    equipmentNum = #{equipmentNum},
+    station = #{station},
+    money = #{money}
+    where id = #{id}
+    </update>
+
+
+
+    <!--专业大类实训基地-->
+    <select id="selectMajorTrainingBase" resultType="com.entity.MajorTrainingBaseEntity">
+      SELECT * FROM major_base
+    </select>
+    <select id="selectMajorTrainingBaseById" resultType="com.entity.MajorTrainingBaseEntity">
+      SELECT * FROM major_base where id = #{id}
+    </select>
+    <delete id="deleteMajorTrainingBase">
+      delete from major_base where id = #{id}
+    </delete>
+    <insert id="addMajorTrainingBase" parameterType="com.entity.MajorTrainingBaseEntity" useGeneratedKeys="true" keyProperty="id">
+    insert into major_base(
+    trainingRoom,
+    equipmentNum,
+    station,
+    money
+    )values(
+    #{trainingRoom},
+    #{equipmentNum},
+    #{station},
+    #{money}
+    )
+    </insert>
+    <update id="updateMajorTrainingBase">
+    update major_base set
+    trainingRoom = #{trainingRoom},
+    equipmentNum = #{equipmentNum},
+    station = #{station},
+    money = #{money}
+    where id = #{id}
+    </update>
+
+
+    <!--公用实训基地-->
+    <select id="selectCommonTrainingBase" resultType="com.entity.CommonTrainingBaseEntity">
+      SELECT * FROM common_base
+    </select>
+    <select id="selectCommonTrainingBaseById" resultType="com.entity.CommonTrainingBaseEntity">
+      SELECT * FROM common_base where id = #{id}
+    </select>
+    <delete id="deleteCommonTrainingBase">
+      delete from common_base where id = #{id}
+    </delete>
+    <insert id="addCommonTrainingBase" parameterType="com.entity.CommonTrainingBaseEntity" useGeneratedKeys="true" keyProperty="id">
+    insert into common_base(
+    trainingNum,
+    outNnm,
+    courseNum,
+    hourNum,
+    GS1,
+    GS2,
+    GS3,
+    GS4,
+    GS5,
+    GS6
+    )values(
+    #{trainingNum},
+    #{outNnm},
+    #{courseNum},
+    #{hourNum},
+    #{GS1},
+    #{GS2},
+    #{GS3},
+    #{GS4},
+    #{GS5},
+    #{GS6}
+    )
+    </insert>
+    <update id="updateCommonTrainingBase">
+    update common_base set
+    trainingNum = #{trainingNum},
+    outNnm = #{outNnm},
+    courseNum = #{courseNum},
+    hourNum = #{hourNum},
+    GS1 = #{GS1},
+    GS2 = #{GS2},
+    GS3 = #{GS3},
+    GS4 = #{GS4},
+    GS5 = #{GS5},
+    GS6 = #{GS6}
+    where id = #{id}
+    </update>
+</mapper>
