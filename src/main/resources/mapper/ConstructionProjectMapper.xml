@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<mapper namespace="com.mapper.ConstructionProjectMapper">
+
+    <!--项目申报-->
+    <select id="selectApplyProject" resultType="com.entity.ApplyProjectEntity">
+      SELECT * FROM apply_project
+    </select>
+    <select id="selectApplyProjectById" resultType="com.entity.ApplyProjectEntity">
+      SELECT * FROM apply_project where id = #{id}
+    </select>
+    <delete id="deleteApplyProject">
+      delete from apply_project where id = #{id}
+    </delete>
+    <insert id="addApplyProject" parameterType="com.entity.ApplyProjectEntity" useGeneratedKeys="true" keyProperty="id">
+    insert into apply_project(
+    centreProject,
+    provincialProject,
+    cityProject,
+    localProject,
+    otherProject
+    )values(
+    #{centreProject},
+    #{provincialProject},
+    #{cityProject},
+    #{localProject},
+    #{otherProject}
+    )
+    </insert>
+    <update id="updateApplyProject">
+    update apply_project set
+    centreProject = #{centreProject},
+    provincialProject = #{provincialProject},
+    cityProject = #{cityProject},
+    localProject = #{localProject},
+    otherProject = #{otherProject}
+    where id = #{id}
+    </update>
+
+
+    <!--项目进度-->
+    <select id="selectPlanProject" resultType="com.entity.PlanProjetEntity">
+      SELECT * FROM plan_project
+    </select>
+    <select id="selectPlanProjectById" resultType="com.entity.PlanProjetEntity">
+      SELECT * FROM plan_project where id = #{id}
+    </select>
+    <delete id="deletePlanProject">
+      delete from plan_project where id = #{id}
+    </delete>
+    <insert id="addPlanProject" parameterType="com.entity.PlanProjetEntity" useGeneratedKeys="true" keyProperty="id">
+    insert into plan_project(
+    centreProject,
+    provincialProject,
+    cityProject,
+    localProject,
+    otherProject
+    )values(
+    #{centreProject},
+    #{provincialProject},
+    #{cityProject},
+    #{localProject},
+    #{otherProject}
+    )
+    </insert>
+    <update id="updatePlanProject">
+    update plan_project set
+    centreProject = #{centreProject},
+    provincialProject = #{provincialProject},
+    cityProject = #{cityProject},
+    localProject = #{localProject},
+    otherProject = #{otherProject}
+    where id = #{id}
+    </update>
+</mapper>

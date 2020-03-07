@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<mapper namespace="com.mapper.StudyPlanMapper">
+
+    <!--办学条件-->
+    <select id="selectStudyPlan" resultType="com.entity.StudyPlanEntity">
+      SELECT * FROM study_plan
+    </select>
+    <select id="selectStudyPlanById" resultType="com.entity.StudyPlanEntity">
+      SELECT * FROM study_plan where id = #{id}
+    </select>
+    <delete id="deleteStudyPlan">
+      delete from study_plan where id = #{id}
+    </delete>
+    <insert id="addStudyPlan" parameterType="com.entity.StudyPlanEntity" useGeneratedKeys="true" keyProperty="id">
+    insert into study_plan(
+    teachPlan,
+    theoryCourse,
+    practiceCourse,
+    trainingRoom
+    )values(
+    #{teachPlan},
+    #{theoryCourse},
+    #{practiceCourse},
+    #{trainingRoom}
+    )
+    </insert>
+    <update id="updateStudyPlan">
+    update study_plan set
+    teachPlan = #{teachPlan},
+    theoryCourse = #{theoryCourse},
+    practiceCourse = #{practiceCourse},
+    trainingRoom = #{trainingRoom}
+    where id = #{id}
+    </update>
+
+</mapper>
