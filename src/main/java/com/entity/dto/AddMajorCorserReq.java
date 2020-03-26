@@ -13,4 +13,6 @@ public class AddMajorCorserReq {
     private int majorCourseNum;
     @ApiModelProperty(value = "textbookNum", name = "textbookNum", example = "200")
     private int textbookNum;
+    @ApiModelProperty(value = "schoolID", name = "schoolID", example = "1")
+    private int schoolID;
 }

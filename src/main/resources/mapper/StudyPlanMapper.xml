@@ -5,7 +5,7 @@
 
     <!--办学条件-->
     <select id="selectStudyPlan" resultType="com.entity.StudyPlanEntity">
-      SELECT * FROM study_plan
+      SELECT * FROM study_plan order by applyTime desc
     </select>
     <select id="selectStudyPlanById" resultType="com.entity.StudyPlanEntity">
       SELECT * FROM study_plan where id = #{id}
@@ -18,12 +18,16 @@
     teachPlan,
     theoryCourse,
     practiceCourse,
-    trainingRoom
+    trainingRoom,
+    schoolID,
+    applyTime
     )values(
     #{teachPlan},
     #{theoryCourse},
     #{practiceCourse},
-    #{trainingRoom}
+    #{trainingRoom},
+    #{schoolID},
+    #{applyTime}
     )
     </insert>
     <update id="updateStudyPlan">

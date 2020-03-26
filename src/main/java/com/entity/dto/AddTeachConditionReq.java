@@ -13,4 +13,6 @@ public class AddTeachConditionReq {
     private int teachProfessional;
     @ApiModelProperty(value = "teachNum", name = "teachNum", example = "200")
     private int teachNum;
+    @ApiModelProperty(value = "schoolID", name = "schoolID", example = "1")
+    private int schoolID;
 }

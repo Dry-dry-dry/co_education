@@ -11,6 +11,7 @@ import lombok.val;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Date;
 import java.util.List;
 
 @Service
@@ -30,6 +31,9 @@ public class VocatonalTrainingServiceImpl implements VocatonalTrainingService {
         entity.setSeniorNum(req.getSeniorNum());
         entity.setTrainStaff(req.getTrainStaff());
         entity.setUnemploymentNum(req.getUnemploymentNum());
+        entity.setSchoolID(req.getSchoolID());
+        Date datenow = new Date();
+        entity.setApplyTime(datenow);
         vocatonalTrainingMapper.addVocatonalTraining(entity);
 
     }

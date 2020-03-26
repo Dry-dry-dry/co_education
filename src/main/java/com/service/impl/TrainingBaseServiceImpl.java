@@ -12,6 +12,7 @@ import lombok.val;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Date;
 import java.util.List;
 
 @Service
@@ -28,6 +29,9 @@ public class TrainingBaseServiceImpl implements TrainingBaseService {
         entity.setMoney(req.getMoney());
         entity.setStation(req.getStation());
         entity.setTrainingRoom(req.getTrainingRoom());
+        entity.setSchoolID(req.getSchoolID());
+        Date datenow = new Date();
+        entity.setApplyTime(datenow);
         trainingBaseMapper.addSchoolTrainingBase(entity);
     }
 
@@ -65,6 +69,9 @@ public class TrainingBaseServiceImpl implements TrainingBaseService {
         entity.setMoney(req.getMoney());
         entity.setStation(req.getStation());
         entity.setTrainingRoom(req.getTrainingRoom());
+        entity.setSchoolID(req.getSchoolID());
+        Date datenow = new Date();
+        entity.setApplyTime(datenow);
         trainingBaseMapper.addMajorTrainingBase(entity);
     }
 
@@ -108,6 +115,9 @@ public class TrainingBaseServiceImpl implements TrainingBaseService {
         entity.setHourNum(req.getHourNum());
         entity.setOutNnm(req.getOutNnm());
         entity.setTrainingNum(req.getTrainingNum());
+        entity.setSchoolID(req.getSchoolID());
+        Date datenow = new Date();
+        entity.setApplyTime(datenow);
         trainingBaseMapper.addCommonTrainingBase(entity);
     }
 

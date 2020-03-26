@@ -19,4 +19,6 @@ public class AddColInternationalReq {
     private int abordTeach;
     @ApiModelProperty(value = "corSchool", name = "corSchool", example = "200")
     private int corSchool;
+    @ApiModelProperty(value = "schoolID", name = "schoolID", example = "1")
+    private int schoolID;
 }

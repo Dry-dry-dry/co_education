@@ -11,13 +11,15 @@ import lombok.val;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.annotation.Resource;
+import java.util.Date;
 import java.util.List;
 
 @Service
 @Slf4j
 public class StudentConditionServiceImpl implements StudentConditionService {
 
-    @Autowired
+    @Resource
     private StudentConditionMapper studentConditionMapper;
 
     @Override
@@ -27,6 +29,9 @@ public class StudentConditionServiceImpl implements StudentConditionService {
         entity.setCityWin(req.getCityWin());
         entity.setCountryWin(req.getCountryWin());
         entity.setProvincialWin(req.getProvincialWin());
+        entity.setSchoolID(req.getSchoolID());
+        Date datenow = new Date();
+        entity.setApplyTime(datenow);
         studentConditionMapper.addStudentCondition(entity);
 
     }

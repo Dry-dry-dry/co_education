@@ -39,5 +39,7 @@ public class AddTeacherInfoReq {
     private int provincialSuperNum;
     @ApiModelProperty(value = "doubleNum", name = "doubleNum", example = "200")
     private int doubleNum;
+    @ApiModelProperty(value = "schoolID", name = "schoolID", example = "1")
+    private int schoolID;
 
 }

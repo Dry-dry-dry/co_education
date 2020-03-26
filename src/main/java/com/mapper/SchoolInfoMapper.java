@@ -2,10 +2,11 @@ package com.mapper;
 
 import com.entity.*;
 import org.apache.ibatis.annotations.Mapper;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
-@Mapper
+@Repository
 public interface SchoolInfoMapper {
     //办学条件
     List<SchoolConditionEntity> selectSchoolCondition();
@@ -41,4 +42,12 @@ public interface SchoolInfoMapper {
     SchoolCompanyEntity selectSchoolCompanyById(int id);
     int deleteSchoolCompany(int id);
     List<SchoolCompanyEntity> selectSchoolCompany();
+
+    //申报信息
+    void addSchoolDeclareInfo(SchoolDeclareInfoEntity entity);
+    void updateSchoolDeclareInfo(SchoolDeclareInfoEntity entity);
+    void deleteSchoolDeclareInfoBySchoolID(int schoolID);
+    SchoolDeclareInfoEntity selectSchoolDeclareInfoBySchoolID(int schoolID);
+    //根据流程状态搜索申报信息
+    List<SchoolDeclareInfoEntity> selectSchoolDeclareInfo(String processStatus);
 }

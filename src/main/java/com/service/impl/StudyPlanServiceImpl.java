@@ -11,6 +11,7 @@ import lombok.val;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Date;
 import java.util.List;
 
 @Service
@@ -26,6 +27,9 @@ public class StudyPlanServiceImpl implements StudyPlanService {
         entity.setTeachPlan(req.getTeachPlan());
         entity.setTheoryCourse(req.getTheoryCourse());
         entity.setTrainingRoom(req.getTrainingRoom());
+        entity.setSchoolID(req.getSchoolID());
+        Date datenow = new Date();
+        entity.setApplyTime(datenow);
         studyPlanMapper.addStudyPlan(entity);
     }
 

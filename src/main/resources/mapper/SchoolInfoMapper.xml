@@ -5,7 +5,7 @@
 
     <!--办学条件-->
     <select id="selectSchoolCondition" resultType="com.entity.SchoolConditionEntity">
-      SELECT * FROM school_condition
+      SELECT * FROM school_condition order by applyTime desc
     </select>
     <select id="selectSchoolConditionById" resultType="com.entity.SchoolConditionEntity">
       SELECT * FROM school_condition where id = #{id}
@@ -21,7 +21,9 @@
     computerNum,
     totalDebt,
     teachMachineMoney,
-    teachMachineNum
+    teachMachineNum,
+    schoolID,
+    applyTime
     )values(
     #{diningSeats},
     #{bookNum},
@@ -29,7 +31,9 @@
     #{computerNum},
     #{totalDebt},
     #{teachMachineMoney},
-    #{teachMachineNum}
+    #{teachMachineNum},
+    #{schoolID},
+    #{applyTime}
     )
     </insert>
     <update id="updateSchoolCondition">
@@ -50,7 +54,7 @@
 
     <!--专业与课程建设-->
     <select id="selectMajorCorse" resultType="com.entity.MajorCorseEntity">
-      SELECT * FROM major_course
+      SELECT * FROM major_course order by applyTime desc
     </select>
     <delete id="deleteMajorCorse">
       delete from major_course where id = #{id}
@@ -60,12 +64,16 @@
     majorNum,
     majorDirNum,
     majorCourseNum,
-    textbookNum
+    textbookNum,
+    schoolID,
+    applyTime
     )values(
     #{majorNum},
     #{majorDirNum},
     #{majorCourseNum},
-    #{textbookNum}
+    #{textbookNum},
+    #{schoolID},
+    #{applyTime}
     )
     </insert>
     <update id="updateMajorCorse">
@@ -85,7 +93,7 @@
 
     <!--参与职教集团情况-->
     <select id="selectTeachCondition" resultType="com.entity.TeachConditionEntity">
-      SELECT * FROM teach_condition
+      SELECT * FROM teach_condition order by applyTime desc
     </select>
     <select id="selectTeachConditionById" resultType="com.entity.TeachConditionEntity">
       SELECT * FROM teach_condition where id = #{id}
@@ -98,12 +106,16 @@
     teachCompany,
     teachSchool,
     teachProfessional,
-    teachNum
+    teachNum,
+    schoolID,
+    applyTime
     )values(
     #{teachCompany},
     #{teachSchool},
     #{teachProfessional},
-    #{teachNum}
+    #{teachNum},
+    #{schoolID},
+    #{applyTime}
     )
     </insert>
     <update id="updateTeachCondition">
@@ -120,7 +132,7 @@
 
     <!--国际合作-->
     <select id="selectColInternational" resultType="com.entity.ColInternationalEntity">
-      SELECT * FROM col_international
+      SELECT * FROM col_international order by applyTime desc
     </select>
     <select id="selectColInternationalById" resultType="com.entity.ColInternationalEntity">
       SELECT * FROM col_international where id = #{id}
@@ -136,7 +148,9 @@
     goAbroad,
     abordCourse,
     abordTeach,
-    corSchool
+    corSchool,
+    schoolID,
+    applyTime
     )values(
     #{coProfess},
     #{trainStudent},
@@ -144,7 +158,9 @@
     #{goAbroad},
     #{abordCourse},
     #{abordTeach},
-    #{corSchool}
+    #{corSchool},
+    #{schoolID},
+    #{applyTime}
     )
     </insert>
     <update id="updateColInternational">
@@ -163,7 +179,7 @@
 
     <!--校企合作-->
     <select id="selectSchoolCompany" resultType="com.entity.SchoolCompanyEntity">
-      SELECT * FROM school_company
+      SELECT * FROM school_company order by applyTime desc
     </select>
     <select id="selectSchoolCompanyById" resultType="com.entity.SchoolCompanyEntity">
       SELECT * FROM school_company where id = #{id}
@@ -179,7 +195,9 @@
     teacherNum,
     hourNum,
     totalMoney,
-    totalFacility
+    totalFacility,
+    schoolID,
+    applyTime
     )values(
     #{trainingBase},
     #{companyNum},
@@ -187,7 +205,9 @@
     #{teacherNum},
     #{hourNum},
     #{totalMoney},
-    #{totalFacility}
+    #{totalFacility},
+    #{schoolID},
+    #{applyTime}
     )
     </insert>
     <update id="updateSchoolCompany">
@@ -202,4 +222,65 @@
     where id = #{id}
     </update>
 
+
+    <!--学校信息申报-->
+    <select id="selectSchoolDeclareInfo" resultType="com.entity.SchoolDeclareInfoEntity">
+      SELECT * FROM school_declareInfo where processStatus = #{processStatus} order by applyTime desc
+    </select>
+    <select id="selectSchoolDeclareInfoBySchoolID" resultType="com.entity.SchoolDeclareInfoEntity">
+      SELECT * FROM school_declareInfo where schoolID = #{schoolID}
+    </select>
+    <delete id="deleteSchoolDeclareInfoBySchoolID">
+      delete from school_declareInfo where schoolID = #{schoolID}
+    </delete>
+    <insert id="addSchoolDeclareInfo" parameterType="com.entity.SchoolDeclareInfoEntity" useGeneratedKeys="true" keyProperty="id">
+    insert into school_declareInfo(
+    schoolID,
+    teacherNum,
+    studentNum,
+    courseNum,
+    courseType,
+    trainNum,
+    trainType,
+    schoolCompanyNum,
+    colInternationalNum,
+    projectNum,
+    projectType,
+    projectPlanStatus,
+    processStatus,
+    applyTime
+    )values(
+    #{schoolID},
+    #{teacherNum},
+    #{studentNum},
+    #{courseNum},
+    #{courseType},
+    #{trainNum},
+    #{trainType},
+    #{schoolCompanyNum},
+    #{colInternationalNum},
+    #{projectNum},
+    #{projectType},
+    #{projectPlanStatus},
+    #{processStatus},
+    #{applyTime}
+    )
+    </insert>
+    <update id="updateSchoolDeclareInfo">
+    update school_declareInfo set
+    teacherNum = #{teacherNum},
+    studentNum = #{studentNum},
+    courseNum = #{courseNum},
+    courseType = #{courseType},
+    trainNum = #{trainNum},
+    trainType = #{trainType},
+    schoolCompanyNum = #{schoolCompanyNum},
+    colInternationalNum = #{colInternationalNum},
+    projectNum = #{projectNum},
+    projectType = #{projectType},
+    projectPlanStatus = #{projectPlanStatus},
+    processStatus = #{processStatus},
+    applyTime = #{applyTime}
+    where applyID = #{applyID}
+    </update>
 </mapper>

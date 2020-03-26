@@ -4,9 +4,10 @@ import com.entity.CommonTeacherEntity;
 import com.entity.CompanyTeacherEntity;
 import com.entity.TeacherInfoEntity;
 import com.entity.dto.AddCommonTeacherReq;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
-
+@Repository
 public interface TeacherDataMapper {
     //学校基本情况
     int addTeacherInfo(TeacherInfoEntity entity);

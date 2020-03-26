@@ -25,4 +25,6 @@ public class AddCommonTrainingBaseReq {
     private int GS5;
     @ApiModelProperty(value = "GS6", name = "GS6", example = "200")
     private int GS6;
+    @ApiModelProperty(value = "schoolID", name = "schoolID", example = "1")
+    private int schoolID;
 }

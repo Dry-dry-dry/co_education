@@ -3,9 +3,10 @@ package com.mapper;
 import com.entity.CommonTrainingBaseEntity;
 import com.entity.MajorTrainingBaseEntity;
 import com.entity.SchoolTrainingBaseEntity;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
-
+@Repository
 public interface TrainingBaseMapper {
     //    全校实训基地
     int addSchoolTrainingBase(SchoolTrainingBaseEntity entity);

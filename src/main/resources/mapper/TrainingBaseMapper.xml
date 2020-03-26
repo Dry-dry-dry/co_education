@@ -5,7 +5,7 @@
 
     <!--全校实训基地-->
     <select id="selectSchoolTrainingBase" resultType="com.entity.SchoolTrainingBaseEntity">
-      SELECT * FROM school_base
+      SELECT * FROM school_base order by applyTime desc
     </select>
     <select id="selectSchoolTrainingBaseById" resultType="com.entity.SchoolTrainingBaseEntity">
       SELECT * FROM school_base where id = #{id}
@@ -18,12 +18,16 @@
     trainingRoom,
     equipmentNum,
     station,
-    money
+    money,
+    schoolID,
+    applyTime
     )values(
     #{trainingRoom},
     #{equipmentNum},
     #{station},
-    #{money}
+    #{money},
+    #{schoolID},
+    #{applyTime}
     )
     </insert>
     <update id="updateSchoolTrainingBase">
@@ -39,7 +43,7 @@
 
     <!--专业大类实训基地-->
     <select id="selectMajorTrainingBase" resultType="com.entity.MajorTrainingBaseEntity">
-      SELECT * FROM major_base
+      SELECT * FROM major_base order by applyTime desc
     </select>
     <select id="selectMajorTrainingBaseById" resultType="com.entity.MajorTrainingBaseEntity">
       SELECT * FROM major_base where id = #{id}
@@ -52,12 +56,16 @@
     trainingRoom,
     equipmentNum,
     station,
-    money
+    money,
+    schoolID,
+    applyTime
     )values(
     #{trainingRoom},
     #{equipmentNum},
     #{station},
-    #{money}
+    #{money},
+    #{schoolID},
+    #{applyTime}
     )
     </insert>
     <update id="updateMajorTrainingBase">
@@ -72,7 +80,7 @@
 
     <!--公用实训基地-->
     <select id="selectCommonTrainingBase" resultType="com.entity.CommonTrainingBaseEntity">
-      SELECT * FROM common_base
+      SELECT * FROM common_base order by applyTime desc
     </select>
     <select id="selectCommonTrainingBaseById" resultType="com.entity.CommonTrainingBaseEntity">
       SELECT * FROM common_base where id = #{id}
@@ -91,7 +99,9 @@
     GS3,
     GS4,
     GS5,
-    GS6
+    GS6,
+    schoolID,
+    applyTime
     )values(
     #{trainingNum},
     #{outNnm},
@@ -102,7 +112,9 @@
     #{GS3},
     #{GS4},
     #{GS5},
-    #{GS6}
+    #{GS6},
+    #{schoolID},
+    #{applyTime}
     )
     </insert>
     <update id="updateCommonTrainingBase">

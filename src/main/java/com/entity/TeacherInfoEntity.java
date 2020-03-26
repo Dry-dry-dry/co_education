@@ -2,6 +2,11 @@ package com.entity;
 
 import lombok.Data;
 
+import java.util.Date;
+
+/**
+ * 教师基本情况
+ * */
 @Data
 public class TeacherInfoEntity {
     private int id;
@@ -22,5 +27,6 @@ public class TeacherInfoEntity {
     private int citySpecialNum;
     private int provincialSuperNum;
     private int doubleNum;
-
+    private int schoolID; //学校编号
+    private Date applyTime; //表单数据填写时间
 }

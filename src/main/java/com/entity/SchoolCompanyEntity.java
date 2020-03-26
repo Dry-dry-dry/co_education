@@ -2,6 +2,11 @@ package com.entity;
 
 import lombok.Data;
 
+import java.util.Date;
+
+/**
+ * 校企合作
+ * */
 @Data
 public class SchoolCompanyEntity {
     private int id;
@@ -12,4 +17,6 @@ public class SchoolCompanyEntity {
     private int hourNum;
     private int totalMoney;
     private int totalFacility;
+    private int schoolID; //学校编号
+    private Date applyTime; //表单数据填写时间
 }

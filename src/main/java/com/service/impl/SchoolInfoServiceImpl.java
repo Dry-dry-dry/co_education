@@ -10,13 +10,15 @@ import lombok.val;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.annotation.Resource;
+import java.util.Date;
 import java.util.List;
 
 @Service
 @Slf4j
 public class SchoolInfoServiceImpl implements SchoolInfoService {
 
-    @Autowired
+    @Resource
     private SchoolInfoMapper schoolInfoMapper;
 
     @Override
@@ -43,6 +45,9 @@ public class SchoolInfoServiceImpl implements SchoolInfoService {
         schoolConditionEntity.setTeachMachineMoney(req.getTeachMachineMoney());
         schoolConditionEntity.setTeachMachineNum(req.getTeachMachineNum());
         schoolConditionEntity.setTotalDebt(req.getTotalDebt());
+        schoolConditionEntity.setSchoolID(req.getSchoolID());
+        Date datenow = new Date();
+        schoolConditionEntity.setApplyTime(datenow);
         schoolInfoMapper.addSchoolCondition(schoolConditionEntity);
     }
 
@@ -71,7 +76,9 @@ public class SchoolInfoServiceImpl implements SchoolInfoService {
         entity.setMajorDirNum(req.getMajorDirNum());
         entity.setMajorNum(req.getMajorNum());
         entity.setTextbookNum(req.getTextbookNum());
-
+        entity.setSchoolID(req.getSchoolID());
+        Date datenow = new Date();
+        entity.setApplyTime(datenow);
         schoolInfoMapper.addMajorCorse(entity);
     }
 
@@ -109,6 +116,9 @@ public class SchoolInfoServiceImpl implements SchoolInfoService {
         entity.setTeachNum(req.getTeachNum());
         entity.setTeachProfessional(req.getTeachProfessional());
         entity.setTeachSchool(req.getTeachSchool());
+        entity.setSchoolID(req.getSchoolID());
+        Date datenow = new Date();
+        entity.setApplyTime(datenow);
         schoolInfoMapper.addTeachCondition(entity);
     }
 
@@ -151,6 +161,9 @@ public class SchoolInfoServiceImpl implements SchoolInfoService {
         entity.setGoAbroad(req.getGoAbroad());
         entity.setReceiveForgin(req.getReceiveForgin());
         entity.setTrainStudent(req.getTrainStudent());
+        entity.setSchoolID(req.getSchoolID());
+        Date datenow = new Date();
+        entity.setApplyTime(datenow);
         schoolInfoMapper.addColInternational(entity);
     }
 
@@ -195,6 +208,9 @@ public class SchoolInfoServiceImpl implements SchoolInfoService {
         entity.setTotalFacility(req.getTotalFacility());
         entity.setTotalMoney(req.getTotalMoney());
         entity.setTrainingBase(req.getTrainingBase());
+        entity.setSchoolID(req.getSchoolID());
+        Date datenow = new Date();
+        entity.setApplyTime(datenow);
         schoolInfoMapper.addSchoolCompany(entity);
     }
 

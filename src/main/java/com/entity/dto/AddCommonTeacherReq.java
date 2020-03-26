@@ -17,4 +17,6 @@ public class AddCommonTeacherReq {
     private int undergraduateTeacher;
     @ApiModelProperty(value = "graduateTeacher", name = "graduateTeacher", example = "200")
     private int graduateTeacher;
+    @ApiModelProperty(value = "schoolID", name = "schoolID", example = "1")
+    private int schoolID;
 }

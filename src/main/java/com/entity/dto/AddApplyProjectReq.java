@@ -15,4 +15,6 @@ public class AddApplyProjectReq {
     private String localProject;
     @ApiModelProperty(value = "otherProject", name = "otherProject", example = "北京的故事")
     private String otherProject;
+    @ApiModelProperty(value = "schoolID", name = "schoolID", example = "1")
+    private int schoolID;
 }

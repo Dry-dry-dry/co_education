@@ -11,4 +11,6 @@ public class AddCompanyTeacherReq {
     private int graduateTeacher;
     @ApiModelProperty(value = "companyTeacher", name = "companyTeacher", example = "200")
     private int companyTeacher;
+    @ApiModelProperty(value = "schoolID", name = "schoolID", example = "1")
+    private int schoolID;
 }

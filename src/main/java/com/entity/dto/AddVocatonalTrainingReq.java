@@ -19,4 +19,6 @@ public class AddVocatonalTrainingReq {
     private int farmerNum;
     @ApiModelProperty(value = "rankerNum", name = "rankerNum", example = "200")
     private int rankerNum;
+    @ApiModelProperty(value = "schoolID", name = "schoolID", example = "1")
+    private int schoolID;
 }

@@ -13,4 +13,6 @@ public class AddStudentConditionReq {
     private int provincialWin;
     @ApiModelProperty(value = "cityWin", name = "cityWin", example = "200")
     private int cityWin;
+    @ApiModelProperty(value = "schoolID", name = "schoolID", example = "1")
+    private int schoolID;
 }

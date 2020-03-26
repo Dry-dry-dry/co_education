@@ -5,7 +5,7 @@
 
     <!--学生基本情况-->
     <select id="selectStudentCondition" resultType="com.entity.StudentConditionEntity">
-      SELECT * FROM student_condition
+      SELECT * FROM student_condition order by applyTime desc
     </select>
     <select id="selectStudentConditionById" resultType="com.entity.StudentConditionEntity">
       SELECT * FROM student_condition where id = #{id}
@@ -18,12 +18,16 @@
     calssNum,
     countryWin,
     provincialWin,
-    cityWin
+    cityWin,
+    schoolID,
+    applyTime
     )values(
     #{calssNum},
     #{countryWin},
     #{provincialWin},
-    #{cityWin}
+    #{cityWin},
+    #{schoolID},
+    #{applyTime}
     )
     </insert>
     <update id="updateStudentCondition">

@@ -13,4 +13,6 @@ public class AddMajorTrainingBaseReq {
     private int station;
     @ApiModelProperty(value = "money", name = "money", example = "200")
     private int money;
+    @ApiModelProperty(value = "schoolID", name = "schoolID", example = "1")
+    private int schoolID;
 }

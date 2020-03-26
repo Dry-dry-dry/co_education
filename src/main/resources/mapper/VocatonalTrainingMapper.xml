@@ -5,7 +5,7 @@
 
     <!--职业培训情况-->
     <select id="selectVocatonalTraining" resultType="com.entity.VocatonalTrainingEntity">
-      SELECT * FROM vocatonal_training
+      SELECT * FROM vocatonal_training order by applyTime desc
     </select>
     <select id="selectVocatonalTrainingById" resultType="com.entity.VocatonalTrainingEntity">
       SELECT * FROM vocatonal_training where id = #{id}
@@ -21,7 +21,9 @@
     disableNum,
     unemploymentNum,
     farmerNum,
-    rankerNum
+    rankerNum,
+    schoolID,
+    applyTime
     )values(
     #{trainStaff},
     #{seniorNum},
@@ -29,7 +31,9 @@
     #{disableNum},
     #{unemploymentNum},
     #{farmerNum},
-    #{rankerNum}
+    #{rankerNum},
+    #{schoolID},
+    #{applyTime}
     )
     </insert>
     <update id="updateVocatonalTraining">

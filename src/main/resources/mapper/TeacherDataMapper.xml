@@ -23,7 +23,9 @@
     goodGreenNum,
     citySpecialNum,
     provincialSuperNum,
-    doubleNum
+    doubleNum,
+    schoolID,
+    applyTime
     )values(
     #{totalTeacher},
     #{regularTeacher},
@@ -41,7 +43,9 @@
     #{goodGreenNum},
     #{citySpecialNum},
     #{provincialSuperNum},
-    #{doubleNum}
+    #{doubleNum},
+    #{schoolID},
+    #{applyTime}
     )
     </insert>
     <update id="updateTeacherInfo">
@@ -66,7 +70,7 @@
     where id = #{id}
     </update>
     <select id="selectTeacherInfo" resultType="com.entity.TeacherInfoEntity">
-      SELECT * FROM teacher_status
+      SELECT * FROM teacher_status order by applyTime desc
     </select>
     <select id="selectTeacherInfoById" resultType="com.entity.TeacherInfoEntity">
       SELECT * FROM teacher_status where id = #{id}
@@ -85,14 +89,18 @@
     englishTeacher,
     computerTeacher,
     undergraduateTeacher,
-    graduateTeacher
+    graduateTeacher,
+    schoolID,
+    applyTime
     )values(
     #{chineseTeacher},
     #{mathTeacher},
     #{englishTeacher},
     #{computerTeacher},
     #{undergraduateTeacher},
-    #{graduateTeacher}
+    #{graduateTeacher},
+    #{schoolID},
+    #{applyTime}
     )
     </insert>
     <update id="updateCommonTeacher">
@@ -106,7 +114,7 @@
     where id = #{id}
     </update>
     <select id="selectCommonTeacher" resultType="com.entity.CommonTeacherEntity">
-      SELECT * FROM common_teacher
+      SELECT * FROM common_teacher order by applyTime desc
     </select>
     <select id="selectCommonTeacherById" resultType="com.entity.CommonTeacherEntity">
       SELECT * FROM common_teacher where id = #{id}
@@ -123,11 +131,15 @@
     insert into company_teacher(
     undergraduateTeacher,
     graduateTeacher,
-    companyTeacher
+    companyTeacher,
+    schoolID,
+    applyTime
     )values(
     #{undergraduateTeacher},
     #{graduateTeacher},
-    #{companyTeacher}
+    #{companyTeacher},
+    #{schoolID},
+    #{applyTime}
     )
     </insert>
     <update id="updateCompanyTeacher">
@@ -138,7 +150,7 @@
     where id = #{id}
     </update>
     <select id="selectCompanyTeacher" resultType="com.entity.CompanyTeacherEntity">
-      SELECT * FROM company_teacher
+      SELECT * FROM company_teacher order by applyTime desc
     </select>
     <select id="selectCompanyTeacherById" resultType="com.entity.CompanyTeacherEntity">
       SELECT * FROM company_teacher where id = #{id}

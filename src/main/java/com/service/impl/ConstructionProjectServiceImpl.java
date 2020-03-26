@@ -14,6 +14,7 @@ import lombok.val;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Date;
 import java.util.List;
 
 @Service
@@ -45,6 +46,9 @@ public class ConstructionProjectServiceImpl implements ConstructionProjectServic
         entity.setLocalProject(req.getLocalProject());
         entity.setOtherProject(req.getOtherProject());
         entity.setProvincialProject(req.getProvincialProject());
+        entity.setSchoolID(req.getSchoolID());
+        Date datenow = new Date();
+        entity.setApplyTime(datenow);
         constructionProjectMapper.addApplyProject(entity);
     }
 
@@ -85,6 +89,9 @@ public class ConstructionProjectServiceImpl implements ConstructionProjectServic
         entity.setLocalProject(req.getLocalProject());
         entity.setOtherProject(req.getOtherProject());
         entity.setProvincialProject(req.getProvincialProject());
+        entity.setSchoolID(req.getSchoolID());
+        Date datenow = new Date();
+        entity.setApplyTime(datenow);
         constructionProjectMapper.addPlanProject(entity);
     }
 

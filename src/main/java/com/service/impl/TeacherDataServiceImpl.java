@@ -12,6 +12,7 @@ import lombok.val;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Date;
 import java.util.List;
 
 @Service
@@ -41,6 +42,9 @@ public class TeacherDataServiceImpl implements TeacherDataService {
         entity.setSubtropicalHighNum(req.getSubtropicalHighNum());
         entity.setTotalTeacher(req.getTotalTeacher());
         entity.setWorldRookieNum(req.getWorldRookieNum());
+        entity.setSchoolID(req.getSchoolID());
+        Date datenow = new Date();
+        entity.setApplyTime(datenow);
         teacherDataMapper.addTeacherInfo(entity);
     }
 
@@ -93,6 +97,9 @@ public class TeacherDataServiceImpl implements TeacherDataService {
         entity.setGraduateTeacher(req.getGraduateTeacher());
         entity.setMathTeacher(req.getMathTeacher());
         entity.setUndergraduateTeacher(req.getUndergraduateTeacher());
+        entity.setSchoolID(req.getSchoolID());
+        Date datenow = new Date();
+        entity.setApplyTime(datenow);
         teacherDataMapper.addCommonTeacher(entity);
     }
 
@@ -131,6 +138,9 @@ public class TeacherDataServiceImpl implements TeacherDataService {
         entity.setCompanyTeacher(req.getCompanyTeacher());
         entity.setGraduateTeacher(req.getGraduateTeacher());
         entity.setUndergraduateTeacher(req.getUndergraduateTeacher());
+        entity.setSchoolID(req.getSchoolID());
+        Date datenow = new Date();
+        entity.setApplyTime(datenow);
         teacherDataMapper.addCompanyTeacher(entity);
     }
 

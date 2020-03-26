@@ -13,4 +13,6 @@ public class AddStudyPlanReq {
     private String practiceCourse;
     @ApiModelProperty(value = "trainingRoom", name = "trainingRoom", example = "合理lo")
     private String trainingRoom;
+    @ApiModelProperty(value = "schoolID", name = "schoolID", example = "1")
+    private int schoolID;
 }

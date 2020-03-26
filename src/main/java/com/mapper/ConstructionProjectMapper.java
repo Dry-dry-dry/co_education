@@ -2,9 +2,10 @@ package com.mapper;
 
 import com.entity.ApplyProjectEntity;
 import com.entity.PlanProjetEntity;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
-
+@Repository
 public interface ConstructionProjectMapper {
     //项目申报
     List<ApplyProjectEntity> selectApplyProject();

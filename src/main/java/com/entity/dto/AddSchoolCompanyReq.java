@@ -19,4 +19,6 @@ public class AddSchoolCompanyReq {
     private int totalMoney;
     @ApiModelProperty(value = "totalFacility", name = "totalFacility", example = "200")
     private int totalFacility;
+    @ApiModelProperty(value = "schoolID", name = "schoolID", example = "1")
+    private int schoolID;
 }

@@ -5,7 +5,7 @@
 
     <!--项目申报-->
     <select id="selectApplyProject" resultType="com.entity.ApplyProjectEntity">
-      SELECT * FROM apply_project
+      SELECT * FROM apply_project order by applyTime desc
     </select>
     <select id="selectApplyProjectById" resultType="com.entity.ApplyProjectEntity">
       SELECT * FROM apply_project where id = #{id}
@@ -19,13 +19,17 @@
     provincialProject,
     cityProject,
     localProject,
-    otherProject
+    otherProject,
+    schoolID,
+    applyTime
     )values(
     #{centreProject},
     #{provincialProject},
     #{cityProject},
     #{localProject},
-    #{otherProject}
+    #{otherProject},
+    #{schoolID},
+    #{applyTime}
     )
     </insert>
     <update id="updateApplyProject">
@@ -41,7 +45,7 @@
 
     <!--项目进度-->
     <select id="selectPlanProject" resultType="com.entity.PlanProjetEntity">
-      SELECT * FROM plan_project
+      SELECT * FROM plan_project order by applyTime desc
     </select>
     <select id="selectPlanProjectById" resultType="com.entity.PlanProjetEntity">
       SELECT * FROM plan_project where id = #{id}
@@ -55,13 +59,17 @@
     provincialProject,
     cityProject,
     localProject,
-    otherProject
+    otherProject,
+    schoolID,
+    applyTime
     )values(
     #{centreProject},
     #{provincialProject},
     #{cityProject},
     #{localProject},
-    #{otherProject}
+    #{otherProject},
+    #{schoolID},
+    #{applyTime}
     )
     </insert>
     <update id="updatePlanProject">
